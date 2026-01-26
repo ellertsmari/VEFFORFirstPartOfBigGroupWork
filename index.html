@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 2: Implementation</title>
+    <link rel="stylesheet" href="slideshow.css">
+</head>
+<body>
+    <div id="slide-container">
+        <!-- Slide 1: Intro -->
+        <div class="slide active">
+            <h1>Phase 2: Implementation</h1>
+            <p>> System: Vefforritun II</p>
+            <p>> Status: Loading Module 'BUILD'...</p>
+            <p>> Date: 26.01.2026</p>
+            <p>You have the designs. You have the plan.</p>
+            <p>Now, we <strong>CODE</strong>.</p>
+        </div>
+
+        <!-- Slide 2: Transition -->
+        <div class="slide">
+            <h1>Transition Protocol</h1>
+            <ul>
+                <li>Design Sprint is complete (mostly).</li>
+                <li>If your designs are 80% ready, start building.</li>
+                <li>Don't get stuck in "Pixel Perfection" paralysis.</li>
+                <li>The goal shifts from <em>"What if?"</em> to <em>"How?"</em>.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 3: Workflow (Git > Scrum) -->
+        <div class="slide">
+            <h1>Workflow: The Git Flow</h1>
+            <p><strong>Golden Rule:</strong> Never commit directly to <code>main</code>.</p>
+            <ul>
+                <li><strong>Branches:</strong> Create a branch for every task.<br>
+                    <code>feature/login-page</code>, <code>fix/navbar-typo</code></li>
+                <li><strong>Pull Requests (PRs):</strong> The heart of collaboration.</li>
+                <li><strong>Code Reviews:</strong> Don't just click "Merge". Read it. Test it. Ask questions.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 4: Best Practices -->
+        <div class="slide">
+            <h1>Team Dynamics</h1>
+            <ul>
+                <li><strong>Daily Standups:</strong> 5 minutes max. "What did I do? What will I do? Blockers?"</li>
+                <li><strong>Pair Programming:</strong> Two brains, one keyboard. Solves hard problems faster.</li>
+                <li><strong>Standards:</strong> Agree on naming (camelCase?), formatting (Prettier?), and file structure <em>before</em> you start.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 5: Frontend (Verkefni 3) -->
+        <div class="slide">
+            <h1>Frontend</h1>
+            <ul>
+                <li><strong>Structure:</strong> HTML/Component hierarchy.</li>
+                <li><strong>Style:</strong> CSS / Tailwind / something else. Make it match the Figma.</li>
+                <li><strong>Logic:</strong> JavaScript / React / Next.js / something else.</li>
+                <li><strong>UX:</strong> Smooth interactions.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 6: Backend (Verkefni 4) -->
+        <div class="slide">
+            <h1>Backend</h1>
+            <ul>
+                <li><strong>Database:</strong> Schema Design & Setup.</li>
+                <li><strong>API:</strong> RESTful endpoints / Data fetching, all CRUD opperations</li>
+                <li><strong>Routing:</strong> Dynamic pages/routes.</li>
+                <li><strong>Logic:</strong> Special features (e.g., Auth, Search).</li>
+            </ul>
+        </div>
+
+        <!-- Slide 7: The Rubric (Next 2 Weeks) -->
+        <div class="slide">
+            <h1>Sprint Goal: Next 2 Weeks</h1>
+            <p>Target deliverables by Feb 9th:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Area</th>
+                        <th>Expectation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Setup</strong></td>
+                        <td>TBA</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Workflow</strong></td>
+                        <td>TBA</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Code</strong></td>
+                        <td>TBA</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Collaboration</strong></td>
+                        <td>TBA</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>> Execute Command: <code>npm run dev</code></p>
+        </div>
+    </div>
+
+    <!-- Hidden Easter Egg Container -->
+    <div id="bug-container"></div>
+    <div id="achievement-modal" class="hidden">
+        <div class="modal-content">
+            <pre>
+  _____   _    _   _____    
+ |  __ \ | |  | | / ____|   
+ | |__) || |  | || |  __    
+ |  _  / | |  | || | |_ |   
+ | | \ \ | |__| || |__| |   
+ |_|  \_\ \____/  \_____|   
+  _    _   _    _   _   _   _____   ______   _____  
+ | |  | | | |  | | | \ | | |  __ \ |  ____| |  __ \ 
+ | |__| | | |  | | |  \| | | |  | || |__    | |__) |
+ |  __  | | |  | | | . ` | | |  | ||  __|   |  _  / 
+ | |  | | | |__| | | |\  | | |__| || |____  | | \ \ 
+ |_|  |_|  \____/  |_| \_| |_____/ |______| |_|  \_\
+            </pre>
+            <p>ACHIEVEMENT UNLOCKED: SENIOR EXTERMINATOR</p>
+            <p>You found all the bugs. Now go fix the real ones.</p>
+            <button id="close-modal">[ CLOSE ]</button>
+        </div>
+    </div>
+
+    <script>
+        localStorage.setItem('debug_hint', 'System unstable. Press [ . ] to scan for bugs. Squash 5 to patch.');
+    </script>
+    <script src="slideshow.js"></script>
+</body>
+</html>
