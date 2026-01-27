@@ -45,7 +45,7 @@ body::before {
 .slide {
     display: none;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     width: 80%;
     max-width: 1000px;
@@ -53,6 +53,26 @@ body::before {
     border: 2px solid var(--dim-color);
     background-color: rgba(13, 17, 23, 0.9);
     box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+/* Scrollbar styling for Webkit */
+.slide::-webkit-scrollbar {
+    width: 10px;
+}
+
+.slide::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+.slide::-webkit-scrollbar-thumb {
+    background: var(--dim-color);
+    border: 1px solid var(--accent-color);
+}
+
+.slide::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
 }
 
 .slide.active {

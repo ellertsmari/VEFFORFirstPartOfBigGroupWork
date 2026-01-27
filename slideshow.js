@@ -37,94 +37,98 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(currentSlide);
 
     // ---------------------------------------------------------
-    // EASTER EGG: BUG HUNT
+    // SYSTEM DIAGNOSTICS
     // ---------------------------------------------------------
-    const BUG_COUNT_TO_WIN = 5;
-    let bugsSquashed = 0;
-    let bugHuntActive = false;
-    const bugContainer = document.getElementById('bug-container');
-    const modal = document.getElementById('achievement-modal');
-    const closeModalBtn = document.getElementById('close-modal');
+    const _0x1 = 5;
+    let _0x2 = 0;
+    let _0x3 = false;
+    const _0x4 = document.getElementById('bug-container');
+    const _0x5 = document.getElementById('achievement-modal');
+    const _0x6 = document.getElementById('close-modal');
 
-    // Bug characters
-    const bugs = ['🐛', '🐞', '🦟', '🪳', '🐜'];
+    const _0x7 = ['🐛', '🐞', '🦟', '🪳', '🐜'];
 
-    // Start hunt on '.' key
     document.addEventListener('keydown', (e) => {
-        if (e.key === '.' && !bugHuntActive) {
-            bugHuntActive = true;
-            startSpawnLoop();
+        // Key check: 'ZGVidWdfbW9kZV9lbmFibGVk' -> 'debug_mode_enabled'
+        if (e.key === '.' && !_0x3) {
+            const _k = atob('ZGVidWdfbW9kZV9lbmFibGVk');
+            if (localStorage.getItem(_k) === 'true') {
+                _0x3 = true;
+                _initseq();
+            } else {
+                console.log('System diagnostics: Access Denied. Missing Authorization Key.');
+            }
         }
     });
 
-    function startSpawnLoop() {
+    function _initseq() {
         const interval = setInterval(() => {
-            if (bugsSquashed >= BUG_COUNT_TO_WIN) {
+            if (_0x2 >= _0x1) {
                 clearInterval(interval);
                 return;
             }
             if (Math.random() > 0.3) {
-                spawnBug();
+                _spwn();
             }
         }, 1500);
     }
 
-    function spawnBug() {
-        const bug = document.createElement('div');
-        bug.classList.add('bug');
-        bug.textContent = bugs[Math.floor(Math.random() * bugs.length)];
+    function _spwn() {
+        const b = document.createElement('div');
+        b.classList.add('bug');
+        b.textContent = _0x7[Math.floor(Math.random() * _0x7.length)];
         
-        const startX = Math.random() < 0.5 ? -50 : window.innerWidth + 50;
-        const startY = Math.random() * window.innerHeight;
+        const sx = Math.random() < 0.5 ? -50 : window.innerWidth + 50;
+        const sy = Math.random() * window.innerHeight;
         
-        bug.style.left = `${startX}px`;
-        bug.style.top = `${startY}px`;
+        b.style.left = `${sx}px`;
+        b.style.top = `${sy}px`;
 
-        bugContainer.appendChild(bug);
+        _0x4.appendChild(b);
 
-        const endX = startX < 0 ? window.innerWidth + 50 : -50;
-        const endY = Math.random() * window.innerHeight;
-        const duration = 3000 + Math.random() * 4000;
+        const ex = sx < 0 ? window.innerWidth + 50 : -50;
+        const ey = Math.random() * window.innerHeight;
+        const dur = 3000 + Math.random() * 4000;
 
-        const animation = bug.animate([
+        const anim = b.animate([
             { transform: `translate(0, 0) rotate(0deg)` },
-            { transform: `translate(${endX - startX}px, ${endY - startY}px) rotate(${Math.random() * 360}deg)` }
+            { transform: `translate(${ex - sx}px, ${ey - sy}px) rotate(${Math.random() * 360}deg)` }
         ], {
-            duration: duration,
+            duration: dur,
             easing: 'linear'
         });
 
-        bug.addEventListener('mousedown', () => {
-            squashBug(bug, animation);
+        b.addEventListener('mousedown', () => {
+            _fix(b, anim);
         });
 
-        animation.onfinish = () => {
-            if (bug.parentNode) {
-                bug.remove();
+        anim.onfinish = () => {
+            if (b.parentNode) {
+                b.remove();
             }
         };
     }
 
-    function squashBug(bug, animation) {
-        animation.pause();
-        bug.textContent = '💥';
-        bug.classList.add('splat');
-        bugsSquashed++;
+    function _fix(b, a) {
+        a.pause();
+        b.textContent = '💥';
+        b.classList.add('splat');
+        _0x2++;
         
         setTimeout(() => {
-            if (bug.parentNode) bug.remove();
+            if (b.parentNode) b.remove();
         }, 1000);
 
-        if (bugsSquashed === BUG_COUNT_TO_WIN) {
-            setTimeout(showAchievement, 500);
+        if (_0x2 === _0x1) {
+            setTimeout(_reveal, 500);
         }
     }
 
-    function showAchievement() {
-        modal.classList.remove('hidden');
+    function _reveal() {
+        _0x5.classList.remove('hidden');
     }
 
-    closeModalBtn.addEventListener('click', () => {
-        modal.classList.add('hidden');
+    _0x6.addEventListener('click', () => {
+        _0x5.classList.add('hidden');
     });
 });
